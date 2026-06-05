@@ -215,6 +215,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:58px;d
 .fsubmit:hover{background:var(--green2);transform:translateY(-1px);box-shadow:0 6px 24px rgba(61,219,130,0.2);}
 .fnote{font-size:0.68rem;color:var(--muted3);text-align:center;margin-top:0.65rem;}
 
+/* ── MODALS ── */
+.modal-overlay{position:fixed;inset:0;z-index:1000;background:rgba(8,8,10,0.92);backdrop-filter:blur(12px);display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;opacity:0;pointer-events:none;transition:opacity 0.3s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:14px;max-width:720px;width:100%;max-height:90vh;overflow-y:auto;padding:2.5rem;position:relative;transform:translateY(20px);transition:transform 0.3s;}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-close{position:sticky;top:0;float:right;background:var(--bg3);border:1px solid var(--border2);color:var(--muted);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;margin-bottom:1rem;}
+.modal-close:hover{color:var(--text);border-color:var(--border3);}
+.modal-title{font-family:var(--serif);font-size:1.8rem;color:var(--text);margin-bottom:1.75rem;padding-bottom:1rem;border-bottom:1px solid var(--border);}
+.modal-section{margin-bottom:1.75rem;}
+.modal-section h3{font-size:0.8rem;font-weight:600;color:var(--green);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:0.75rem;}
+.modal-section p,.modal-section li{font-size:0.88rem;color:var(--muted);line-height:1.8;margin-bottom:0.5rem;}
+.modal-section ul{padding-left:1.2rem;}
+.modal-section a{color:var(--green);text-decoration:none;}
+.modal-section a:hover{text-decoration:underline;}
+
 /* ── FOOTER ── */
 footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
 .fl{font-family:var(--serif);font-size:1.1rem;color:var(--text);}
@@ -668,7 +683,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;disp
 <footer>
   <div class="fl">NOVI<span>Q</span></div>
   <div class="fc">© 2026 NOVIQ · KI-Werbeagentur DACH</div>
-  <div class="flinks"><a href="#">Impressum</a><a href="#">Datenschutz</a><a href="#">AGB</a></div>
+  <div class="flinks"><a href="#" onclick="openModal('impressum');return false;">Impressum</a><a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a><a href="#" onclick="openModal('agb');return false;">AGB</a></div>
 </footer>
 
 <script>
@@ -929,6 +944,136 @@ document.addEventListener('DOMContentLoaded', () => {
   initCounterTrigger();
 });
 
+</script>
+<!-- IMPRESSUM MODAL -->
+<div class="modal-overlay" id="modal-impressum" onclick="closeModalOutside(event,'impressum')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('impressum')">×</button>
+    <div class="modal-title">Impressum</div>
+    <div class="modal-section">
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>Maxim Ergheledji<br>NOVIQ – KI-Werbeagentur<br>Gartenstraße 13<br>35633 Lahnau<br>Deutschland</p>
+    </div>
+    <div class="modal-section">
+      <h3>Kontakt</h3>
+      <p>E-Mail: <a href="mailto:hallo@noviq.de">hallo@noviq.de</a></p>
+    </div>
+    <div class="modal-section">
+      <h3>Berufsbezeichnung</h3>
+      <p>Gewerbetreibender (Einzelunternehmen)<br>Zuständiges Gewerbeamt: Lahn-Dill-Kreis</p>
+    </div>
+    <div class="modal-section">
+      <h3>Umsatzsteuer</h3>
+      <p>Gemäß § 19 UStG wird keine Umsatzsteuer berechnet (Kleinunternehmerregelung).</p>
+    </div>
+    <div class="modal-section">
+      <h3>Haftung für Inhalte</h3>
+      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Haftung für Links</h3>
+      <p>Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Urheberrecht</h3>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- DATENSCHUTZ MODAL -->
+<div class="modal-overlay" id="modal-datenschutz" onclick="closeModalOutside(event,'datenschutz')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('datenschutz')">×</button>
+    <div class="modal-title">Datenschutzerklärung</div>
+    <div class="modal-section">
+      <h3>Verantwortlicher</h3>
+      <p>Maxim Ergheledji<br>NOVIQ – KI-Werbeagentur<br>Gartenstraße 13, 35633 Lahnau<br>E-Mail: <a href="mailto:hallo@noviq.de">hallo@noviq.de</a></p>
+    </div>
+    <div class="modal-section">
+      <h3>Grundsatz</h3>
+      <p>Wir nehmen den Schutz deiner persönlichen Daten sehr ernst. Wir behandeln deine personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Datenerfassung auf dieser Website</h3>
+      <p>Die Datenverarbeitung auf dieser Website erfolgt durch den Websitebetreiber. Dessen Kontaktdaten kannst du dem Impressum dieser Website entnehmen.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Kontaktformular</h3>
+      <p>Wenn du uns per Kontaktformular Anfragen zukommen lässt, werden deine Angaben aus dem Anfrageformular inklusive der von dir dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne deine Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Das Kontaktformular wird über den Dienst Formspree (formspree.io) abgewickelt. Die Datenschutzerklärung von Formspree findest du unter <a href="https://formspree.io/legal/privacy-policy" target="_blank">formspree.io/legal/privacy-policy</a>.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Hosting</h3>
+      <p>Diese Website wird auf GitHub Pages gehostet. Anbieter ist GitHub Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. Wenn du unsere Website besuchst, erfasst GitHub verschiedene Logfiles inklusive deiner IP-Adressen. Details findest du in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank">GitHub Privacy Statement</a>.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Deine Rechte</h3>
+      <p>Du hast jederzeit das Recht auf unentgeltliche Auskunft über deine gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der Datenverarbeitung sowie ein Recht auf Berichtigung oder Löschung dieser Daten. Hierzu sowie zu weiteren Fragen zum Thema personenbezogene Daten kannst du dich jederzeit unter der im Impressum angegebenen Adresse an uns wenden.</p>
+    </div>
+    <div class="modal-section">
+      <h3>Cookies</h3>
+      <p>Diese Website verwendet keine Tracking-Cookies. Es werden keine Analyse- oder Werbe-Cookies eingesetzt.</p>
+    </div>
+  </div>
+</div>
+
+<!-- AGB MODAL -->
+<div class="modal-overlay" id="modal-agb" onclick="closeModalOutside(event,'agb')">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('agb')">×</button>
+    <div class="modal-title">Allgemeine Geschäftsbedingungen</div>
+    <div class="modal-section">
+      <h3>§ 1 Geltungsbereich</h3>
+      <p>Diese Allgemeinen Geschäftsbedingungen gelten für alle Verträge zwischen Maxim Ergheledji (NOVIQ, nachfolgend „Auftragnehmer") und dem Kunden (nachfolgend „Auftraggeber") über die Erstellung von KI-generierten Werbevideos, Produktbildern und Werbetexten.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 2 Vertragsschluss</h3>
+      <p>Ein Vertrag kommt zustande, wenn der Auftraggeber ein Angebot des Auftragnehmers schriftlich (per E-Mail oder Nachricht) annimmt und die Zahlung eingeht. Mit der Zahlung erkennt der Auftraggeber diese AGB an.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 3 Leistungsumfang</h3>
+      <p>Der Leistungsumfang ergibt sich aus dem jeweiligen gebuchten Paket. Alle Lieferzeiten gelten ab Zahlungseingang und vollständigem Briefing durch den Auftraggeber. Änderungen am Leistungsumfang bedürfen der schriftlichen Vereinbarung.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 4 Zahlung</h3>
+      <p>Die Zahlung erfolgt vor Projektbeginn (Vorkasse). Akzeptierte Zahlungsmethoden: PayPal, Banküberweisung, Kreditkarte. Bei ausbleibender Zahlung besteht keine Lieferpflicht.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 5 Revisionen</h3>
+      <p>Im Starter-Paket ist 1 Revision enthalten, im Professional-Paket 3 Revisionen, im Brand Launch unbegrenzte Revisionen. Jede zusätzliche Revision außerhalb des Paketumfangs wird mit 50 € netto berechnet. Eine Revision beinhaltet maximal 2 konkrete Änderungswünsche pro Runde.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 6 Urheberrecht & Nutzungsrechte</h3>
+      <p>Mit vollständiger Zahlung erhält der Auftraggeber das einfache, nicht-exklusive Nutzungsrecht für die gelieferten Inhalte zu kommerziellen Werbezwecken. Der Auftragnehmer behält das Recht, die erstellten Arbeiten im eigenen Portfolio und zu Referenzzwecken zu verwenden, sofern der Auftraggeber nicht ausdrücklich widerspricht.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 7 Haftung</h3>
+      <p>Der Auftragnehmer haftet nicht für die werbliche Wirksamkeit der gelieferten Inhalte. Die Eignung der Inhalte für bestimmte Plattformen oder Werbekampagnen wird nicht garantiert. Bei KI-generierten Inhalten können vereinzelt Abweichungen vom Briefing auftreten — diese werden im Rahmen der inkludierten Revisionen behoben.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 8 Pflichten des Auftraggebers</h3>
+      <p>Der Auftraggeber stellt sicher, dass alle übermittelten Materialien (Fotos, Logos, Texte) frei von Rechten Dritter sind oder er über die erforderlichen Nutzungsrechte verfügt. Für Rechtsverletzungen durch vom Auftraggeber bereitgestellte Materialien haftet ausschließlich der Auftraggeber.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 9 Kein Widerrufsrecht im B2B-Bereich</h3>
+      <p>Die Leistungen von NOVIQ richten sich ausschließlich an Unternehmer im Sinne des § 14 BGB (gewerbliche Kunden, Selbstständige, Freiberufler). Ein Widerrufsrecht nach §§ 312g, 355 BGB steht ausschließlich Verbrauchern zu und gilt daher im Rahmen dieser ausschließlich geschäftlichen Tätigkeit nicht. Mit der Auftragserteilung bestätigt der Auftraggeber, dass er als Unternehmer handelt und kein Verbraucher im Sinne des § 13 BGB ist.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 10 Stornierung</h3>
+      <p>Da kein gesetzliches Widerrufsrecht besteht, gilt folgende vertragliche Stornierungsregelung: Eine Stornierung ist bis 24 Stunden nach Zahlungseingang kostenlos möglich. Danach werden 50 % des Paketpreises als Aufwandsentschädigung einbehalten, sofern die Produktion bereits begonnen hat. Nach vollständiger Lieferung der vereinbarten Leistung ist eine Stornierung oder Rückerstattung ausgeschlossen.</p>
+    </div>
+    <div class="modal-section">
+      <h3>§ 11 Schlussbestimmungen & Anwendbares Recht</h3>
+      <p>Es gilt deutsches Recht. Gerichtsstand ist, soweit gesetzlich zulässig, der Sitz des Auftragnehmers.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+function openModal(id){document.getElementById('modal-'+id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById('modal-'+id).classList.remove('open');document.body.style.overflow='';}
+function closeModalOutside(e,id){if(e.target===document.getElementById('modal-'+id))closeModal(id);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){['impressum','datenschutz','agb'].forEach(closeModal);}});
 </script>
 </body>
 </html>
