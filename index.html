@@ -69,23 +69,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:58px;d
 .hstat-num em{color:var(--green);font-style:normal;}
 .hstat-lbl{font-size:0.7rem;color:var(--muted2);letter-spacing:0.07em;text-transform:uppercase;}
 
-/* ── SCROLL MOCKUPS ── */
-.scroll-section{position:relative;padding:3rem 0 6rem;overflow:hidden;}
-.scroll-track{display:flex;gap:1rem;width:max-content;animation:scrollX 30s linear infinite;}
-.scroll-track:hover{animation-play-state:paused;}
-@keyframes scrollX{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-.scroll-card{width:320px;flex-shrink:0;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color 0.3s;}
-.scroll-card:hover{border-color:var(--greenBorder);}
-.sc-top{padding:0.65rem 0.9rem;display:flex;align-items:center;gap:0.4rem;border-bottom:1px solid var(--border);}
-.sc-dot{width:5px;height:5px;border-radius:50%;}
-.sc-bar{flex:1;height:3px;background:var(--border);border-radius:2px;}
-.sc-body{height:160px;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;color:var(--muted3);position:relative;overflow:hidden;}
-.sc-body::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(61,219,130,0.05),transparent 60%);}
-.sc-body::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border);}
-.sc-foot{padding:0.55rem 0.9rem;display:flex;justify-content:space-between;align-items:center;}
-.sc-tag{font-size:0.65rem;color:var(--muted2);}
-.sc-ok{font-size:0.65rem;color:var(--green);}
-.fade-sides{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,transparent 8%,transparent 92%,var(--bg) 100%);}
+
 
 /* ── SECTIONS ── */
 .sec{padding:7rem 2rem;max-width:1080px;margin:0 auto;}
@@ -256,7 +240,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;disp
   .hero{padding:5.5rem 1.25rem 4rem;}.hero-stats{flex-direction:column;gap:0;width:100%;}
   .hstat{border-right:none;border-bottom:1px solid var(--border);padding:1rem;}
   .hstat:last-child{border-bottom:none;}
-  .scroll-section{padding:2rem 0 4rem;}
   .sec,.sec-dark{padding:5rem 1.25rem;}
   .steps-grid,.pkg-row,.single-row,.nischen-grid,.bento{grid-template-columns:1fr;}
   .bento-card.wide,.bento-card.tall{grid-column:auto;grid-row:auto;}
@@ -428,32 +411,12 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;disp
     <div class="hstat"><div class="hstat-num"><em>48</em>h</div><div class="hstat-lbl">Lieferzeit</div></div>
     <div class="hstat"><div class="hstat-num">−<em>90</em>%</div><div class="hstat-lbl">vs. Agentur</div></div>
     <div class="hstat"><div class="hstat-num">ab <em>59</em>€</div><div class="hstat-lbl">Einzelvideo</div></div>
-    <div class="hstat"><div class="hstat-num"><em>4</em> Clips</div><div class="hstat-lbl">pro Video</div></div>
+
   </div>
 </section>
 
 <!-- SCROLL MOCKUPS -->
-<div class="scroll-section">
-  <div style="display:flex;gap:1rem;overflow:hidden;position:relative;">
-    <div class="fade-sides"></div>
-    <div class="scroll-track">
-      <!-- Set 1 -->
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">PRODUCT REVEAL</div><div class="sc-foot"><span class="sc-tag">TikTok · 9:16 · 8 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">LIFESTYLE SHOT</div><div class="sc-foot"><span class="sc-tag">Reels · 9:16 · 10 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">DETAIL CLOSE-UP</div><div class="sc-foot"><span class="sc-tag">Feed · 1:1 · 6 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">CTA ABSCHLUSS</div><div class="sc-foot"><span class="sc-tag">Story · 9:16 · 5 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">BRAND LAUNCH</div><div class="sc-foot"><span class="sc-tag">Meta Ad · 1:1 · 15 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">FOOD CAMPAIGN</div><div class="sc-foot"><span class="sc-tag">TikTok · 9:16 · 12 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <!-- Set 2 (duplicate for infinite) -->
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">PRODUCT REVEAL</div><div class="sc-foot"><span class="sc-tag">TikTok · 9:16 · 8 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">LIFESTYLE SHOT</div><div class="sc-foot"><span class="sc-tag">Reels · 9:16 · 10 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">DETAIL CLOSE-UP</div><div class="sc-foot"><span class="sc-tag">Feed · 1:1 · 6 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">CTA ABSCHLUSS</div><div class="sc-foot"><span class="sc-tag">Story · 9:16 · 5 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">BRAND LAUNCH</div><div class="sc-foot"><span class="sc-tag">Meta Ad · 1:1 · 15 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-      <div class="scroll-card"><div class="sc-top"><div class="sc-dot" style="background:#FF5F57;"></div><div class="sc-dot" style="background:#FFBD2E;"></div><div class="sc-dot" style="background:#28C840;"></div><div class="sc-bar"></div></div><div class="sc-body">FOOD CAMPAIGN</div><div class="sc-foot"><span class="sc-tag">TikTok · 9:16 · 12 Sek.</span><span class="sc-ok">✓ Geliefert</span></div></div>
-    </div>
-  </div>
-</div>
+
 
 
 <!-- PORTFOLIO -->
@@ -552,17 +515,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:2rem;disp
       <div class="bento-title">Kein KI-Look</div>
       <div class="bento-desc">Cineastische Produktinszenierungen statt generischer Avatar-Videos. Bild-zu-Clip Methode für maximale Qualität.</div>
     </div>
-    <div class="bento-card wide reveal" data-d="2" style="background:var(--bg3);border-color:var(--greenBorder);display:flex;align-items:center;gap:2rem;flex-wrap:wrap;">
-      <div style="flex:1">
-        <div class="bento-title">Transparente Festpreise — keine Überraschungen</div>
-        <div class="bento-desc">Starter ab 349 €, Professional ab 899 €. Du weißt vorher was du zahlst. Keine "Auf Anfrage"-Preise für KMU.</div>
-      </div>
-      <div style="display:flex;gap:0.75rem;flex-wrap:wrap;flex-shrink:0;">
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.1rem;text-align:center;"><div style="font-family:var(--serif);font-size:1.5rem;color:var(--green);">349€</div><div style="font-size:0.62rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.06em;">Starter</div></div>
-        <div style="background:var(--bg);border:1px solid var(--greenBorder);border-radius:8px;padding:0.75rem 1.1rem;text-align:center;"><div style="font-family:var(--serif);font-size:1.5rem;color:var(--green);">899€</div><div style="font-size:0.62rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.06em;">Professional</div></div>
-        <div style="background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:0.75rem 1.1rem;text-align:center;"><div style="font-family:var(--serif);font-size:1.5rem;color:var(--text);">1.499€</div><div style="font-size:0.62rem;color:var(--muted2);text-transform:uppercase;letter-spacing:0.06em;">Brand Launch</div></div>
-      </div>
-    </div>
+
   </div>
 </div>
 
@@ -914,21 +867,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add tilt to nische cards  
   document.querySelectorAll('.nische').forEach(card => card.classList.add('tilt-card'));
 
-  // Add tilt to scroll cards
-  document.querySelectorAll('.scroll-card').forEach(card => card.classList.add('tilt-card'));
-
   // Add glow border to package cards
   document.querySelectorAll('.pkg-card').forEach(card => card.classList.add('glow-border'));
 
   // Add magnetic to all CTA buttons
   document.querySelectorAll('.btn-g, .nav-cta').forEach(btn => btn.classList.add('magnetic'));
-
-  // Add scan line to mockup cards
-  document.querySelectorAll('.sc-body').forEach(body => {
-    const scanLine = document.createElement('div');
-    scanLine.className = 'scan-line';
-    body.appendChild(scanLine);
-  });
 
   // Make hero title shimmer
   const heroTitle = document.querySelector('.hero-title em');
